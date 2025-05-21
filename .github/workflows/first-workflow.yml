@@ -18,7 +18,7 @@ jobs:
             - name: display Os
               run: sw_vers
     dependent-job:  
-      runs-on: windwos_latest
+      runs-on: windows_latest
       needs: run-shell-commands # this can be a string
       steps:
         - name: echo A string 
