@@ -9,17 +9,17 @@ jobs:
             - name: echo a string #This is an arrray of jobs
               run: echo "Hello World"
             - name: multilinecommand
-              run : |
+              run: |
                 node -v
                 npm -v
     parallel-job:
-      runs-on: macos-latest
-      steps:
+        runs-on: macos-latest
+        steps:
             - name: display Os
               run: sw_vers
     dependent-job:  
-      runs-on: windows_latest
-      needs: run-shell-commands # this can be an Array
-      steps:
+        runs-on: windows_latest
+        needs: run-shell-commands # this can be an Array
+        steps:
             - name: echo A string 
               run: Write-Output "Windows String"
