@@ -16,4 +16,4 @@ jobs:
       runs-on: macos-latest
       steps:
             - name: display Os
-              run: sw_Version
+              run: sw_vers
