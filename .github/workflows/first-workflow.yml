@@ -9,6 +9,6 @@ jobs:
             - name: echo a string #This is an arrray of jobs
               run: echo "Hello World"
             - name: multilinecommand
-              run: >
+              run : >
                 node -v
                 npm -v
