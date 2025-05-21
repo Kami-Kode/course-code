@@ -19,7 +19,7 @@ jobs:
               run: sw_vers
     dependent-job:  
       runs-on: windows_latest
-      needs: run-shell-commands # this can be a string
+      needs: run-shell-commands # this can be an Array
       steps:
-        - name: echo A string 
-          run: Write-Output "Windows String"
+            - name: echo A string 
+              run: Write-Output "Windows String"
