@@ -1,0 +1,14 @@
+name: first-workflow
+
+on: [push]
+
+jobs:
+    run-shell-commands:
+        runs-on: ubuntu-latest # for last version i added -latest
+        steps:
+            - name: echo a string #This is an arrray of jobs
+              run: echo "Hello World"
+            - name: multilinecommand
+              run: >
+                node -v
+                npm -v
