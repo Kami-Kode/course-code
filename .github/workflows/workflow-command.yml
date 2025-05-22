@@ -18,4 +18,14 @@ jobs:
               run: echo "::warning title=Warning title,file=app.js
                    ,line=2,endLine=3 ,col=5,endColumn=7::Missing Semi column"
             - name: Setting an error notice with parameters
-              run: echo "::notice title=Notice title,file=app.js,line=2,endLine=3 ,col=5,endColumn=7::Missing Semi column"
+              run: echo "::notice title=Notice title,file=app.js
+                   ,line=2,endLine=3 ,col=5,endColumn=7::Missing Semi column"
+            - name: group of logs
+              run: |
+                echo "::group::My group title"
+                echo " inside title"
+                echo "::endgroup::"
+            - name: Masking A value
+              run: echo"::add-Mask::Secret String"
+            - name: echo secret string
+              run: echo "Secret String"
