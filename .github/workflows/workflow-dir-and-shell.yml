@@ -35,5 +35,5 @@ jobs:
             - name: running python hell
               shell: python shells
               run: |
-                import platform.process
+                import platform
                 print(platform.processor())
