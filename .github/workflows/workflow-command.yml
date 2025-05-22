@@ -26,6 +26,6 @@ jobs:
                 echo " inside title"
                 echo "::endgroup::"
             - name: Masking A value
-              run: echo"::add-Mask::Secret String"
+              run: echo"::add-mask::Secret String"
             - name: echo secret string
               run: echo "Secret String"
