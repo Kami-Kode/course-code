@@ -29,3 +29,6 @@ jobs:
                 echo $env:GITHUB_SHA
                 echo $env:GITHUB_REPOSITORY
                 echo $env:GITHUB_WORKSPACE
+            - name: running python hell
+              shell: python shell
+              run: echo "hellow"
