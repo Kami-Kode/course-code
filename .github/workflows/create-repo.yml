@@ -10,8 +10,6 @@ jobs:
               run: ls -ltr
             - name: creating repo
               run: |
-                echo "GITHUB_ACTOR=${{ github.actor }}" >> $GITHUB_ENV
-                echo "GITHUB_REPOSITORY=${{ github.repository }}" >> $GITHUB_ENV
                 git init
                 git remote add origin "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com/$GITHUB_REPOSITORY.git"
                 git fetch origin
