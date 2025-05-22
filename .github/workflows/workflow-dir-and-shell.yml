@@ -1,7 +1,10 @@
 name: workflow-dir-and-shell
 
 on: [push]
-
+defaults:
+  run:
+    shell: bash
+    
 jobs:
     run-dir-command:
         runs-on: ubuntu-latest
