@@ -1,0 +1,21 @@
+name: creating-repo
+
+on: [push]
+
+jobs:
+    creating-repo:
+        runs-on: latest-ubuntu
+        defaults:
+            run:
+                shell: pwsh
+        steps:
+            - name: list directory
+              run: ls -ltr
+            - name: creating repo
+              run: |
+                git init
+                git remote add origin "https://$GITHUB_ACTOR:$:{{secrets.GITHUB_TOKEN}}@github.com"
+                get fetch origin
+                git checkout main
+            - name: list directory after
+              run: ls -ltr
