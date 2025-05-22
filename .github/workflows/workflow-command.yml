@@ -9,7 +9,7 @@ jobs:
             - name: Setting Some error message
               run: echo "::error::missing semi column"
             - name: Setting an error message with parameters
-              run: echo "::error title=Error title,file=app.js
+              run: echo "::error title:Error title,file=app.js
                    ,line=2,endLine=3 ,col=5,endColumn=7::Missing Semi column"
             - name: Setting a debug message
               run: echo "::debug title=Debug title,file=app.js
