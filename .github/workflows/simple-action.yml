@@ -1,0 +1,21 @@
+name: simple-action
+
+on: [push]
+
+jobs:
+    simple-action:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Simple Js Action
+              id: greet
+              uses: actions/hello-world-javascript-action@main 
+              with:
+                who-to-greet: mohammed
+            - name: Log Greeting time
+              run: echo "${{steps.greet.outputs.time}}"
+
+#we give it actions/directory-for-action-used-on-github+ branch(the branch where we git from) 
+#we can also use docker or docker image
+#or we can use uses: actions/hello-world-javascript-action@v1.1.2 pr v1
+#we can use it with id will mention screenshot how to get them ex @9e4b6280010b48928905c91e5b1e6603cea947aa
+#with params will be mentioned in the action page
