@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
     creating-repo:
-        runs-on: latest-ubuntu
+        runs-on: ubuntu-latest
         defaults:
             run:
                 shell: pwsh
