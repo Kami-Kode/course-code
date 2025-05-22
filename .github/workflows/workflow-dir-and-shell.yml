@@ -33,7 +33,7 @@ jobs:
                 echo $env:GITHUB_REPOSITORY
                 echo $env:GITHUB_WORKSPACE
             - name: running python hell
-              shell: python shells
+              shell: python
               run: |
                 import platform
                 print(platform.processor())
