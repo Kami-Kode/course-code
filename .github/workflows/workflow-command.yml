@@ -12,13 +12,13 @@ jobs:
               run: echo "::error title:Error title,file=app.js
                    ,line=2,endLine=3 ,col=5,endColumn=7::Missing Semi column"
             - name: Setting a debug message
-              run: echo "::debug title=Debug title,file=app.js
+              run: echo "::debug title:Debug title,file=app.js
                    ,line=2,endLine=3 ,col=5,endColumn=7::Missing Semi column"
             - name: Setting an error warning with parameters
-              run: echo "::warning title=Warning title,file=app.js
+              run: echo "::warning title:Warning title,file=app.js
                    ,line=2,endLine=3 ,col=5,endColumn=7::Missing Semi column"
             - name: Setting an error notice with parameters
-              run: echo "::notice title=Notice title,file=app.js
+              run: echo "::notice title:Notice title,file=app.js
                    ,line=2,endLine=3 ,col=5,endColumn=7::Missing Semi column"
             - name: group of logs
               run: |
