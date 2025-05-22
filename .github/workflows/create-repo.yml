@@ -15,7 +15,7 @@ jobs:
               run: |
                 git init
                 git remote add origin "https://$GITHUB_ACTOR:${{secrets.GITHUB_TOKEN}}@github.com"
-                get fetch origin
+                git fetch origin
                 git checkout main
             - name: list directory after
               run: ls -ltr
