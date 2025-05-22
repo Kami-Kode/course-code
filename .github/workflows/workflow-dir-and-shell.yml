@@ -4,7 +4,7 @@ on: [push]
 defaults:
   run:
     shell: bash
-
+#   working-director: /de/ed
 jobs:
     run-dir-command:
         runs-on: ubuntu-latest
@@ -16,6 +16,9 @@ jobs:
                 echo $GITHUB_SHA
                 echo $GITHUB_REPOSITORY
                 echo $GITHUB_WORKSPACE
+            - name: Change Work Directory
+              working-directory: /home/runner/work/course-code
+              run: pwd
     run-dir-command-windows:
         runs-on: windows-latest
         defaults:
@@ -30,5 +33,7 @@ jobs:
                 echo $env:GITHUB_REPOSITORY
                 echo $env:GITHUB_WORKSPACE
             - name: running python hell
-              shell: python shell
-              run: echo "hellow"
+              shell: python shells
+              run: |
+                import platform.process
+                print(platform.processor())
