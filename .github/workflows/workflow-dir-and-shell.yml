@@ -18,8 +18,8 @@ jobs:
         steps:
             - name: Display Directory & shell
               run: |
-                pwd
-                ls -ltr
-                echo $GITHUB_SHA
-                echo $GITHUB_REPOSITORY
-                echo $GITHUB_WORKSPACE
+                Get-Location
+                dir
+                env:$GITHUB_SHA
+                echo:$GITHUB_REPOSITORY
+                echo:$GITHUB_WORKSPACE
