@@ -7,5 +7,5 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Setting Some error message
-              run: "::error:: missing semi column"
+              run: echo "::error::missing semi column"
 
