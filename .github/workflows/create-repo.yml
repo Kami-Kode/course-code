@@ -9,7 +9,7 @@ jobs:
             run:
                 shell: pwsh
         steps:
-            - name: list directory
+            - name: list directory before
               run: ls -ltr
             - name: creating repo
               run: |
