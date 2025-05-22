@@ -9,6 +9,6 @@ jobs:
             - name: list items before
               run: ls -ltr
             - name: checkout
-              run: actions/checkout@v3
+              uses: actions/checkout@v3
             - name: list items after
               run: ls -ltr
