@@ -1,0 +1,25 @@
+name: workflow-dir-and-shell
+
+on: [push]
+
+jobs:
+    run-dir-command:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Display Directory & shell
+              run: |
+                pwd
+                ls -ltr
+                echo $GITHUB_SHA
+                echo $GITHUB_REPOSITORY
+                echo $GITHUB_WORKSPACE
+    run-dir-command-windows:
+        runs-on: windows-latest
+        steps:
+            - name: Display Directory & shell
+              run: |
+                pwd
+                ls -ltr
+                echo $GITHUB_SHA
+                echo $GITHUB_REPOSITORY
+                echo $GITHUB_WORKSPACE
