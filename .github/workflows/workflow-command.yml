@@ -6,6 +6,6 @@ jobs:
     command-to-do:
         runs-on: ubuntu-latest
         steps:
-            - name: echo a string
-              run: echo "hello world"
+            - name: Setting Some error message
+              run: "::error:: missing semi column"
 
