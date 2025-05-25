@@ -3,7 +3,7 @@ name: checking events
 on: [push,pull_request, issues]
 
 jobs:
-    display-data:
+    display-datas:
         runs-on: ubuntu-latest
         steps:
             - run: >
