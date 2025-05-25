@@ -1,6 +1,10 @@
 name: checking events
 
-on: [push,pull_request, issues]
+on:
+    push:
+    pull_request:
+    issues: 
+        types: [opened, edited, closed]
 
 jobs:
     display-data:
