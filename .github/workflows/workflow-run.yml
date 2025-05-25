@@ -1,0 +1,12 @@
+name: worfklow even
+
+on:
+    workflow_run:
+        workflows: [checking events]
+jobs:
+    run-workflowafter-other:
+        runs-on: ubuntu-latest
+        steps:
+            - name: echo something
+              run: echo "I was triggered cause of the workflow sequence"
+    
