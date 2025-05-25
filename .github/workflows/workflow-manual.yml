@@ -1,0 +1,11 @@
+name: workflow-manual
+
+on:
+    workflow_dispatch:
+
+jobs:
+    trigger-workflow-manual:
+        runs-on: ubuntu-latest
+        steps:
+            - name: echo github ref
+              run: echo "$GITHUB_REF"

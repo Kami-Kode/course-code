@@ -2,6 +2,19 @@ name: checking events
 
 on:
     push:
+        branches:
+                - "main"
+                - "featur/*" #matches on featur/featurA but not 
+                            #on featur/featurA/featurB as * doesnt take /
+                - "featur/**" #matches on featur/featurA and 
+                            #on featur/featurA/featurB 
+                - "!featur/featurA" # and order is important for example if it was set before it would first reject then accpet it cause of featur/*
+        tags: 
+            - v1.*
+            - "!v.1.1.1"
+        paths:
+            - "**.JS"
+            - "!app.js"
     pull_request:
         types: [opened, assigned, reopened, synchronize]
     issues:
