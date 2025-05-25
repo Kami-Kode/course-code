@@ -4,7 +4,7 @@ on:
     workflow_run:
         workflows: [checking events]
 jobs:
-    run-workflowafter-other:
+    run-workflowafster-other:
         runs-on: ubuntu-latest
         steps:
             - name: echo something
