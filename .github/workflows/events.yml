@@ -3,8 +3,9 @@ name: checking events
 on:
     push:
     pull_request:
-    issues: 
-        types: [opened, edited, closed]
+        types: [opened, assigned, reopened, synchronize]
+    issues:
+        types: [opened]
 
 jobs:
     display-data:
