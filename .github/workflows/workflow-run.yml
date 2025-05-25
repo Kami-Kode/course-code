@@ -1,4 +1,4 @@
-name: worfklow even
+name: worfklow event
 
 on:
     workflow_run:
