@@ -1,4 +1,5 @@
 name: Status check
+run-name: running by ${{github.actor}} for event ${{github.event_name}}
 
 on: [push]
 
