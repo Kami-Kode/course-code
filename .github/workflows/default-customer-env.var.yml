@@ -10,13 +10,14 @@ jobs:
         runs-on: ubuntu-latest
        #if: $GITHUB_REF == 'refs/heads/main' DONT USE THIS
         if: github.ref == 'refs/heads/main'
-        env:
-            JOB_LEVEL_ENV: environemnt Variable on Job Level
         steps:
             - name: display env variable
               run: echo $GITHUB_REF
     type-context-var:
         runs-on: ubuntu-latest
+        env:
+            JOB_LEVEL_ENV: environemnt Variable on Job Level
+        if: github.ref == 'refs/heads/main'
         steps:
             - name: display context variable
               run: echo '${{github.ref}}'
