@@ -8,7 +8,7 @@ jobs:
         steps:
             - name: Expressions
               run: |
-                echo ${{1}}"
+                echo ${{1}}
                 echo ${{'This is A string'}}
                 echo ${{ null }}
                 echo ${{ true }}
