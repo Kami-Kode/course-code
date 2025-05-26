@@ -4,7 +4,7 @@ run-name: "Expression & Context by ${{ github.actor }}, event ${{github.event_na
 on: [push,pull_request,issues,workflow_dispatch]
 
 jobs:
-    work-with-expression-context:
+    work-with-expressions-context:
         runs-on: ubuntu-latest
         if: github.event_name == 'push'
         steps:
