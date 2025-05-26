@@ -1,0 +1,11 @@
+name : external event repo
+
+on:
+  repository_dispatch:
+
+jobs:
+  echo-astring:
+    runs-on: ubuntu-latest
+  jobs:
+    - name: echo a string
+      run: echo "Hello"
