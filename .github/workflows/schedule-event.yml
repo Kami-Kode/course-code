@@ -9,11 +9,11 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: stale some issues
-              uses: actions/stale@v9
+              uses: actions/stale@v8
               with:
                 stale-issue-message: "Message to comment on stale issues. If none provided, will not mark issues stale"
-                days-before-stale: 1 #specifies before staling an issue or a PR 
-                days-before-close: 5 #specifies before staling an issue or a PR 
+                days-before-stale: 1 
+                days-before-close: 5 
                 stale-pr-message: "Message to comment on stale PRs. If none provided, will not mark PRs stale"
 
 
