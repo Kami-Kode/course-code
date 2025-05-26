@@ -6,10 +6,13 @@ jobs:
     work-with-expressions-context:
         runs-on: ubuntu-latest
         steps:
-            - name: echo a context variable
-              id: greet
-              uses: actions/hello-world-javascript-action@main
-              with:
-                who-to-greet: "Mohammed"
-            - name: log greeting time
-              run: echo "${{steps.greet.outputs.time}}"
+            - name: Expressions
+              run: |
+                echo ${{1}}"
+                echo ${{'This is A string'}}
+                echo ${{ null }}
+                echo ${{ true }}
+                echo ${{1>2}}
+                echo ${{'string' == 'String'}}
+                echo ${{true && false}}
+                echo ${{true || (false && true)}}
