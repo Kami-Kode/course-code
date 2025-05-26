@@ -8,4 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       -  name: echo a string
-         run: echo ${{github.event.client_payload.env}}
+         run: |
+          echo ${{github.event.client_payload.env}}
+          echo ${{github.event.client_payload.param1}}
