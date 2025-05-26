@@ -10,8 +10,8 @@ jobs:
         runs-on: ubuntu-latest
         env:
             JOB_LEVEL_ENV: environemnt Variable on Job Level
-       #if: $GITHUB_REF == 'ref/heads/main' DONT USE THIS
-        if: github.ref == 'ref/heads/main'
+       #if: $GITHUB_REF == 'refs/heads/main' DONT USE THIS
+        if: github.ref == 'refs/heads/main'
         steps:
             - name: display env variable
               run: echo $GITHUB_REF
