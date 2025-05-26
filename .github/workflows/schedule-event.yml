@@ -2,7 +2,7 @@ name: schedule event
 
 on:
     schedule:
-        - cron: "0/5 * * * *" #AT EVERY MINUTE tho it isnt acceptable in gothub
+        - cron: "*/5 * * * *" #AT EVERY MINUTE tho it isnt acceptable in gothub
 
 jobs:
     stale-some-issues:
