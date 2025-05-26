@@ -1,0 +1,15 @@
+name: Environment variables
+
+on: [push]
+
+jobs:
+    type-environment-var:
+        runs-on: ubuntu-latest
+        steps:
+            - name: display env variable
+              run: echo $GITHUB_REF
+    type-context-var:
+        runs-on: ubuntu-latest
+        steps:
+            - name: display context variable
+              run: echo ${{github.ref}}
