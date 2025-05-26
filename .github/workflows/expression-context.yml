@@ -13,6 +13,7 @@ jobs:
           run: echo ${{join(github.event.issue.labels.*.name,',')}}
     work-with-expressions-context:
         runs-on: ubuntu-latest
+        if: github.event_name == 'push'
         steps:
             - name: Expressions
               run: |
