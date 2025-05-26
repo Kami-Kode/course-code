@@ -28,11 +28,11 @@ jobs:
             - name: multiline env var
               run: |
                 {
-                echo "RANDOM_JOKE<<$EOF" 
+                echo "RANDOM_JOKE<<EOF" 
                 echo "Here is a joke: "
                 curl -s "https://icanhazdadjoke.com/" 
                 echo "" 
-                echo "$EOF" 
+                echo "EOF" 
                 }>> "$GITHUB_ENV"
             - name: log env var
               env:
