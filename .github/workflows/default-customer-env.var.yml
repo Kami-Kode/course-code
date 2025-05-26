@@ -31,7 +31,7 @@ jobs:
                 echo "RANDOM_JOKE<<$DELIMITER" >>"$GITHUB_ENV"
                 echo "Here is a joke: ">> "$GITHUB_ENV"
                 curl -s "https://icanhazdadjoke.com/" >> "$GITHUB_ENV"
-                echo ""
+                echo "" >> "$GITHUB_ENV"
                 echo "$DELIMITER" >> "$GITHUB_ENV"
             - name: log env var
               env:
