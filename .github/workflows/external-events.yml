@@ -6,6 +6,6 @@ on:
 jobs:
   echo-astring:
     runs-on: ubuntu-latest
-  jobs:
-    - name: echo a string
-      run: echo "Hello"
+    steps:
+      -  name: echo a string
+         run: echo "Hello"
