@@ -1,6 +1,6 @@
 name: Expressions & Context
 
-on: [push,pull_request]
+on: [push,pull_request,issues,workflow_dispatch]
 
 jobs:
     work-with-expressions-context:
@@ -11,5 +11,5 @@ jobs:
               uses: actions/hello-world-javascript-action@main
               with:
                 who-to-greet: "Mohammed"
-            - name:
-              run: echo ${{steps.greet.outputs.time}}
+            - name: log greeting time
+              run: echo "${{steps.greet.outputs.time}}"
