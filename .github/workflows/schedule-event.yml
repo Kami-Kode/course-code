@@ -1,0 +1,18 @@
+name: schedule event
+
+on:
+    schedule:
+        - cron: '1 * * * *'
+jobs:
+    stale-some-issues:
+        runs-on: ubuntu-latest
+        steps:
+            - name: stale some issues
+              uses: actions/stale@v9
+              with:
+                stale-issue-message: 'Message to comment on stale issues. If none provided, will not mark issues stale'
+                #days-before-stale: 1 spcifies before staling an issue or a PR 
+                #days-before-close: 5 spcifies before staling an issue or a PR 
+                stale-pr-message: 'Message to comment on stale PRs. If none provided, will not mark PRs stale'
+
+
