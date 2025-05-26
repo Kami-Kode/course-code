@@ -1,0 +1,15 @@
+name: Expressions & Context
+
+on: [push,pull_request]
+
+jobs:
+    work-with-expressions-context:
+        runs-on: ubuntu-latest
+        steps:
+            - name: echo a context variable
+              id: greet
+              uses: actions/hello-world-javascript-action@main
+              with:
+                who-to-greet: "Mohammed"
+            - name:
+              run: echo ${{steps.greet.outputs.time}}
