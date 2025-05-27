@@ -19,6 +19,8 @@ on:
 jobs:
     # this job is to transform from the inputs in workflow dispatch from strings to array that are being sent in matrix "windows-latest,ubuntu-latest" to [windows-latest,ubuntu-latest]
     prepare-matrix:
+        outputs:
+            matrix-arrays: ${{steps.matrix-arrays.outputs.result}}
         runs-on: ubuntu-latest
         steps:
             - uses: actions/github-script@v6
@@ -36,13 +38,13 @@ jobs:
                 echo '${{steps.step-2.outputs.step-output}}'
             - run: echo ${{steps.matrix-arrays.outputs.result}}
     display-node-matrix:
+        needs: prepare-matrix
         strategy:
             matrix: 
-                node-version: [14,15,16]
-                os: [ubuntu-latest,windows-latest]
+                node-version: ${{ fromJson(needs.prepare-matrix.outputs.matrix-arrays.os) }}
+                os: ${{ fromJson(needs.prepare-matrix.outputs.matrix-arrays.node-version) }}
 
         runs-on: ${{ matrix.os }}
-        
         steps:
             - run: node -v
             - uses: actions/setup-node@v3
