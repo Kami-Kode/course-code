@@ -4,12 +4,14 @@ on: push
 
 jobs:
     display-node-matrix:
-        
+        continue-on-error: false
         strategy:
             matrix: 
                 node-version: [14,15,16]
                 os: [ubuntu-latest,windows-latest]
+            max-parallel: 2
         runs-on: ${{ matrix.os }}
+        
         steps:
             - run: node -v
             - uses: actions/setup-node@v3
