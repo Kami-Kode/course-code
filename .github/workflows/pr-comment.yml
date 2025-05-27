@@ -8,7 +8,7 @@ jobs:
     writing-As-Comment:
         runs-on: ubuntu-latest
         permissions:
-          issues: write #this way we added write permission to issue all the other non specified issues will have permissions set as none
+          pull-requests: write #this way we added write permission to issue all the other non specified issues will have permissions set as none
         steps: 
             - name: pr A comment
               uses: actions/github-script@v6
