@@ -4,7 +4,7 @@ on: push
 
 jobs:
     display-node-matrix:
-        continue-on-error: false
+        continue-on-error: ${{matrix.experimental == true}}
         strategy:
             matrix: 
                 node-version: [14,15,16]
