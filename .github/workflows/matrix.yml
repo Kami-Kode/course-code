@@ -28,6 +28,8 @@ jobs:
         runs-on: ${{ matrix.os }}
         
         steps:
+            - if: matrix.experimental == 'true'
+              run: exit 1
             - run: node -v
             - run: echo '${{toJson(matrix)}}'
             - uses: actions/setup-node@v3
