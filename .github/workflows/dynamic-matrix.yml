@@ -36,13 +36,13 @@ jobs:
             - run: |
                 echo '${{steps.step-1.outputs.step-output}}'
                 echo '${{steps.step-2.outputs.step-output}}'
-            - run: echo ${{steps.matrix-arrays.outputs.result}}
+            - run: echo ${{fromJson(steps.matrix-arrays.outputs.result).os}}
     display-node-matrix:
         needs: prepare-matrix
         strategy:
             matrix: 
-                node-version: ${{ fromJson(needs.prepare-matrix.outputs.matrix-arrays.os) }}
-                os: ${{ fromJson(needs.prepare-matrix.outputs.matrix-arrays.node-version) }}
+                node-version: ${{ fromJson(needs.prepare-matrix.outputs.matrix-arrays).os }}
+                os: ${{ fromJson(needs.prepare-matrix.outputs.matrix-arrays).node-version }}
 
         runs-on: ${{ matrix.os }}
         steps:
