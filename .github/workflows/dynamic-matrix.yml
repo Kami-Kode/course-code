@@ -1,0 +1,54 @@
+name: dynamic matrix
+
+on: 
+    workflow_dispatch:
+        inputs:
+            experimental:
+                type: boolean
+                description: experimental
+                default: true
+                required: true
+            node-version:
+                type: string
+                description: node-version
+                default: "14,15,16"
+                required: true
+            os:
+                type: string
+                description: Operation System
+                default: "windows-latest,ubuntu-latest"
+                required: true
+            is-ubuntu:
+                type: boolean
+                description: is ubuntu
+                default: true
+                required: true
+
+
+
+jobs:
+    # this job is to transform from the inputs in workflow dispatch from strings to array that are being sent in matrix "windows-latest,ubuntu-latest" to [windows-latest,ubuntu-latest]
+    prepare-matrix:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "step-output=value 1" >> $GITHUB_OUTPUT # we're setting value into this nev variable output
+              id: step-1
+            - run: echo "step-output=value 2" >> $GITHUB_OUTPUT # we're setting value into this nev variable output
+              id: step-2
+            - run: |
+                echo '${{steps.step-1.outputs.step-output}}'
+                echo '${{steps.step-2.outputs.step-output}}'
+    display-node-matrix:
+        strategy:
+            matrix: 
+                node-version: [14,15,16]
+                os: [ubuntu-latest,windows-latest]
+
+        runs-on: ${{ matrix.os }}
+        
+        steps:
+            - run: node -v
+            - uses: actions/setup-node@v3
+              with:
+                node-version: ${{matrix.node-version}}
+            - run: node -v
