@@ -24,7 +24,7 @@ jobs:
             - uses: actions/github-script@v6
               id: matrix-arrays
               with:
-                script: "return {os: context.payload.inputs['os'].split(',') , 'node-version': context.payload.inputs['ndoe-version'].split(','}" 
+                script: "return {os: context.payload.inputs['os'].split(',') , 'node-version': context.payload.inputs['ndoe-version'].split(',')}" 
                 # this a java script function and we used in action and when returning it will set them in GITHUB_OUTPUT
                 result-encoding: json # cause were returning here a jso object    
             - run: echo "step-output=value 1" >> $GITHUB_OUTPUT # we're setting value into this nev variable output
