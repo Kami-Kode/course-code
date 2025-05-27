@@ -11,6 +11,7 @@ jobs:
               run: sleep 20
             - name: Fail step
               id: step-2
+              continue-on-error: true
               run: exit 1  
             - name: Runs on success
             #this is not needed cause its default behavior
