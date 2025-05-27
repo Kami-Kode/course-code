@@ -7,10 +7,13 @@ on:
 jobs:
     writing-As-Comment:
         runs-on: ubuntu-latest
+        permissions:
+          issues: read #this way we added write permission to issue all the other non specified issues will have permissions set as none
         steps: 
             - name: pr A comment
               uses: actions/github-script@v6
               with:  #this one is for params
+                github-token: ${{secrets.GITHUB_TOKEN}} #we can add this, this secret is autmatically created at the beginning of each workflow run we can validate on it and wehn workflow done it will expire
                 script: |
                     github.rest.issues.createComment({
                     owner: context.repo.owner,
