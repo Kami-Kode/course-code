@@ -12,4 +12,4 @@ jobs:
             - name: decrypt token
               run: |
                 mkdir $HOME/secrets
-                gpg --quiet --batch --yes --pinentry-mode=loopback --decrypt --passphrase="$PASSPHRASE" --output $HOME/secrets/secret.json ecrypt-data.json.gpg
+                gpg --quiet --batch --yes --pinentry-mode=loopback --decrypt --passphrase="$PASSPHRASE" --output $HOME/secrets/secret.json encrypt-data.json.gpg
