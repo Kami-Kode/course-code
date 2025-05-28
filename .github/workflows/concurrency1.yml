@@ -21,5 +21,6 @@ jobs:
             - name: sleep
               run: sleep 30
             - name: echo
-              run: echo '${{inputs.string}}'
-
+              run: |
+                echo '${{inputs.string}}'
+                echo '${{inputs.environment}}'
