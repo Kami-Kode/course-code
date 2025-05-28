@@ -10,7 +10,7 @@ on:
                 required: false
 
 jobs:
-    calling-a-reusable-workflow:
+    calling-a-reusable-workflows:
         uses: Kami-Kode/workflows-test/.github/workflows/reusable-workflow.yml@main
         with:
             name: '${{inputs.name}}'
