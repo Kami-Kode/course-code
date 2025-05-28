@@ -23,7 +23,7 @@ jobs:
             - name: run tests #we added testing here
               run: npm test
             - name: upload a coverage report
-              uses: actions/upload-artifact@v3
+              uses: actions/upload-artifact@v3.1.3
               if: always()
               with:
                 name: code-coverage
