@@ -25,4 +25,4 @@ jobs:
               run: |
                 echo '${{inputs.string}}'
                 echo '${{inputs.environment}}'
-                echo "'${{github.workflow.run-name}}'-'${{inputs.environment}}'"
+                echo "'${{github.workflow}}'-'${{inputs.environment}}'"
