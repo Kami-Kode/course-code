@@ -9,6 +9,12 @@ on:
             
             
 jobs:
+    calling-other-workflow:
+        uses: Kami-Kode/workflows-test/.github/workflows/reusable-workflow.yml@main
+        with:
+            name: 'Mohammed'
+        secrets:
+            access-token: '${{secrets.ACCESS_TOKEN}}' # ITS INHERITED from caller
     generate-output:
         runs-on: ubuntu-latest
         outputs:

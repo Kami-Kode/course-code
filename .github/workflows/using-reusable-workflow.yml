@@ -15,9 +15,10 @@ jobs:
         with:
             name: '${{inputs.name}}'
         secrets: 
-            access-token: '${{secrets.ACCESS_TOKEN}}'
+            access-token: '${{secrets.ACCESS_TOKEN}}' #to use this in later workflows we need to add it everytime to the job
     calling-a-reusable-workflows-in-same-repo:
-        uses: ./.github/workflows/reusable-workflow.yml #wihtout branch since on the same branch i think
+        uses: ./.github/workflows/reusable-workflow.yml # to use this  #wihtout branch since on the same branch i think
+        secrets: inherit  #to inherit the secrets from caller and sent it to the reusable-workflow
     using-resuable-wf-outputs:
         runs-on: ubuntu-latest
         needs: calling-a-reusable-workflows-in-same-repo
