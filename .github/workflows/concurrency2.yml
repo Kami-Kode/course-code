@@ -13,7 +13,7 @@ on:
                 type: environment
                 required: true
 concurrency: 
-    group: concurrency-'${{inputs.environment}}' #this is called concurrency group this will guarantee it will only work one time
+    group: "'${{github.workflow.run-name}}'-'${{inputs.environment}}'" #this is called concurrency group this will guarantee it will only work one time
     cancel-in-progress: true
 jobs:
     concurrency1-test:
