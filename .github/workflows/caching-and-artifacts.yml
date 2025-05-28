@@ -12,7 +12,10 @@ jobs:
               uses: actions/cache@v3
               with:
                 path: ~/.npm
-                key: npm-cache-${{hashFiles('**/package-lock.json')}} #npm-cache#12312412 some random hash that will change
+                key: ${{ runner.os }}-npm-cache-${{hashFiles('**/package-lock.json')}} #linux-npm-cache#12312412 some random hash that will change and depends on runner
+                restore-keys: |
+                    ${{ runner.os }}-npm-cache-
+                    ${{ runner.os }}
             - name: display cache
               run: echo '${{toJson(steps.cache.outputs)}}'
             - name: install dependency
