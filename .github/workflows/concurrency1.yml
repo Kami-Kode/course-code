@@ -24,4 +24,4 @@ jobs:
               run: |
                 echo '${{inputs.string}}'
                 echo '${{inputs.environment}}'
-                echo '${{github.env.concurrency}}'
+                echo '${{github.env.concurrency.group}}'
