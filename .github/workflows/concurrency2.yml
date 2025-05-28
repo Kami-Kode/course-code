@@ -6,7 +6,7 @@ on:
         inputs:
             string:
                 type: string
-                description: asd
+                description: asds
                 required: true
             environment:
                 description: "Prod environment"
