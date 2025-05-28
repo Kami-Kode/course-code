@@ -11,7 +11,9 @@ on:
                 description: "Prod environment"
                 type: environment
                 required: true
-concurrency: concurrency-1 #this is called concurrency group this will guarantee it will only work one time
+concurrency: 
+    group: concurrency-1 #this is called concurrency group this will guarantee it will only work one time
+    cancel-in-progress: true
 jobs:
     concurrency1-test:
         runs-on: ubuntu-latest
