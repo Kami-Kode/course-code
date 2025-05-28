@@ -1,5 +1,6 @@
-name: Concurrency 2
+name: Concurrency 1
 
+run-name: Concurrecny1 - ${{inputs.environment}}
 on:
     workflow_dispatch:
         inputs:
@@ -11,13 +12,17 @@ on:
                 description: "Prod environment"
                 type: environment
                 required: true
-
+concurrency: 
+    group: concurrency-'${{inputs.environment}}' #this is called concurrency group this will guarantee it will only work one time
+    cancel-in-progress: true
 jobs:
-    concurrency2-test:
+    concurrency1-test:
         runs-on: ubuntu-latest
         steps:
             - name: sleep
               run: sleep 30
             - name: echo
-              run: echo '${{inputs.string}}'
-
+              run: |
+                echo '${{inputs.string}}'
+                echo '${{inputs.environment}}'
+                echo "concurrency-'${{inputs.environment}}'"
