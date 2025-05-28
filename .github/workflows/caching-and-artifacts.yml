@@ -11,8 +11,8 @@ jobs:
               id: cache
               uses: actions/cache@v3
               with:
-                path: "~/.npm"
-                key: "npm-cache"
+                path: ~/.npm
+                key: npm-cache-${{hashFiles('**/package-lock.json')}} #npm-cache#12312412 some random hash that will change
             - name: display cache
               run: echo '${{toJson(steps.cache.outputs)}}'
             - name: install dependency
