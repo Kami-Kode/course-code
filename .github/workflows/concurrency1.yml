@@ -4,7 +4,7 @@ run-name: Concurrency1 - ${{inputs.environment}}
 on:
     workflow_dispatch:
         inputs:
-            string:
+            pop:
                 type: string
                 description: asd
                 required: true
