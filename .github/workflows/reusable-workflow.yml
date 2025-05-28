@@ -1,0 +1,19 @@
+name: reusable workflow
+
+on:
+    workflow_call:
+        outputs:
+            date: 
+                description: date
+                value: ${{jobs.generate-output.outputs.date}} # the date name references the outputs date on line
+            
+            
+jobs:
+    generate-output:
+        runs-on: ubuntu-latest
+        outputs:
+            date: ${{steps.date-step.outputs.date}} #i want the outputs to be on job level, date is what specified in """data""" = $(date)
+        steps:
+            - name: write into an output fule
+              run: echo "date= $(date)" >> $GITHUB_OUTPUT
+              id: date-step

@@ -10,9 +10,11 @@ on:
                 required: false
 
 jobs:
-    calling-a-reusable-workflows:
+    calling-a-reusable-workflows-in-diff-repo:
         uses: Kami-Kode/workflows-test/.github/workflows/reusable-workflow.yml@main
         with:
             name: '${{inputs.name}}'
         secrets: 
             access-token: '${{secrets.ACCESS_TOKEN}}'
+    calling-a-reusable-workflows-in-same-repo:
+        uses: ./.github/workflows/reusable-workflow.yml
