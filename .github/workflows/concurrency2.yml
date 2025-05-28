@@ -1,0 +1,23 @@
+name: Concurrency 2
+
+on:
+    workflow_dispatch:
+        inputs:
+            string:
+                type: string
+                description: asd
+                required: true
+            environment:
+                description: "Prod environment"
+                type: environment
+                required: true
+
+jobs:
+    concurrency2-test:
+        runs-on: ubuntu-latest
+        steps:
+            - name: sleep
+              run: sleep 30
+            - name: echo
+              run: echo '${{inputs.string}}'
+
