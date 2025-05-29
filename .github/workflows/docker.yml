@@ -51,7 +51,7 @@ jobs:
                 entrypoint: ./script.sh
                 args: "Some String" #Some is first argument String is second argument
             - name: Send a slack message 
-              uses: docker://technosophos/slack-notify/ # THE IMAGE HERE
+              uses: docker://technosophos/slack-notify # THE IMAGE HERE
               env: 
                     SLACK_WEBHOOK: '${{ secrets.SLACK_WEBHOOK }}'
                     SLACK_USERNAME: "BrigadeBot"
