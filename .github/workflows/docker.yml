@@ -10,7 +10,7 @@ jobs:
             # username:
             # password we can add those as credentials
             env:
-                API_URL: some=ur.com
+                API_URL: someurl.com
             ports:
                 - 80
             # volumes:
@@ -25,4 +25,4 @@ jobs:
                 cat /etc/os-release
             - name: log environemnt variable
               run: |
-                echo $API_URL
+                echo '${{env.API_URL}}'
