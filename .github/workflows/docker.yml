@@ -1,7 +1,6 @@
 name: docker
 on: [workflow_dispatch]
-env:
-    API_URL: someurl.com
+
 jobs:
     docker-job:
         runs-on: ubuntu-latest
@@ -26,4 +25,4 @@ jobs:
                 cat /etc/os-release
             - name: log environemnt variable
               run: |
-                echo '${{github.env.API_URL}}'
+                echo $API_URL
