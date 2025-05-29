@@ -25,4 +25,4 @@ jobs:
                 cat /etc/os-release
             - name: log environemnt variable
               run: |
-                echo '${{env.API_URL}}'
+                echo '${{github.env.API_URL}}'
