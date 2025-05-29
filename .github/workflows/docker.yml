@@ -43,4 +43,10 @@ jobs:
               with:
                 entrypoint: cat
                 args: text.txt #this way it will be displayed
-
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: run a script
+              uses: docker://node:18.16-alpine3.17 # the container already has bash and will run the script without the need for sh as its a shell and already executable
+              with:
+                entrypoint: ./script.sh
+                args: "Some String" #Some is first argument String is second argument
