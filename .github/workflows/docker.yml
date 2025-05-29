@@ -26,3 +26,13 @@ jobs:
             - name: log environemnt variable
               run: |
                 echo $API_URL
+            - name: Container in step
+              uses: docker://node:18.16-alpine3.17
+              with:
+                entrypoint: /usr/local/bin/node
+                args: -p 2+3
+            - name: Log node version
+              uses: docker://node:18.16-alpine3.17
+              with:
+                args: -v
+
