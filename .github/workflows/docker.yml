@@ -26,6 +26,9 @@ jobs:
             - name: log environemnt variable
               run: |
                 echo $API_URL
+            - name: Create  file
+              run: echo 'Some text' >>text.txt # this is going to run in working director of the first container which is mapped to adirectory in our running machine
+                                               # this file will be shared so even other docker containers are abl to access them
             - name: Container in step
               uses: docker://node:18.16-alpine3.17
               with:
@@ -35,4 +38,9 @@ jobs:
               uses: docker://node:18.16-alpine3.17
               with:
                 args: -v
+            - name: display file content
+              uses: docker://node:18.16-alpine3.17
+              with:
+                entrypoint: cat
+                args: text.txt #this way it will be displayed
 
