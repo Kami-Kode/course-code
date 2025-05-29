@@ -1,6 +1,7 @@
 name: docker
 on: [workflow_dispatch]
-
+env:
+    API_URL: someurl.com
 jobs:
     docker-job:
         runs-on: ubuntu-latest
