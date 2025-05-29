@@ -1,0 +1,28 @@
+name: docker
+on: [workflow_dispatch]
+
+jobs:
+    docker-job:
+        runs-on: ubuntu-latest
+        container: 
+            image: node:24-alpine3.20
+            # credentials:
+            # username:
+            # password we can add those as credentials
+            env:
+                API_URL: some=ur.com
+            ports:
+                - 80
+            # volumes:
+            #     - vol_name:/path/in/container
+            #     - /path/to/containerS
+            #     - /path/in.host:/path/in/container we can add also volumes
+            options: --cpus 1 #any option that you can pass to dokcer create command
+        steps:
+            - name: Log Node & Os Versions
+              run: |
+                node -v
+                cat /etc/os-release
+            - name: log environemnt variable
+              run: |
+                echo $API_URL
