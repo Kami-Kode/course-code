@@ -1,0 +1,23 @@
+name: hello
+author: Mohammed
+description: "displays hello to a certain name"
+inputs:
+    who_to_greet:
+        description: name to greet
+        required: true
+        default: "World"
+outputs:
+    time:
+        description: the time of the greeting
+
+
+runs:
+    using: "node16" # to specify on what it runs here its a javascript actions
+    main: index.js #implicates the file that should be be run
+    pre: "setup.js" # indicates the file that should be run before the index.js , this one is a setup 
+                  # note that pre key does not work for private actions it needs to be public but will use it for reference anw
+    #runs this pre only on this condition
+    pre-if: runner.os= 'linux' 
+    post: "cleanup.js" # indicate the file that should be run after the index.js is run
+    #runs this pre only on this condition 
+    post-if: runner.os= 'linux' 
