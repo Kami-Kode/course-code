@@ -13,7 +13,7 @@ outputs:
 
 runs:
     using: "node16" # to specify on what it runs here its a javascript actions
-    main: 'dist/index.js' #implicates the file that should be be run
+    main: "dist/index.js" #implicates the file that should be be run
     pre: "setup.js" # indicates the file that should be run before the index.js , this one is a setup 
                   # note that pre key does not work for private actions it needs to be public but will use it for reference anw
     #runs this pre only on this condition
