@@ -21,7 +21,7 @@ runs:
       run: |
         {
           echo "random_joke<<EOF" 
-          curl -s "https://icanhazdadjoke.com/" 
+          curl -s -H "Accept: text/plain" "https://icanhazdadjoke.com/" 
           echo "" 
           echo "EOF" 
         }>> "$GITHUB_OUTPUT"
