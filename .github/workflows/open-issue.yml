@@ -1,0 +1,25 @@
+name: open issue
+
+on: 
+    workflow_dispatch:
+        inputs:
+            title:
+                type: string
+                description: title
+                required: true
+            body:
+                type: string
+                description: body
+                required: true
+        
+jobs:
+    call-public-action:
+        runs-on: ubuntu-latest
+        steps:
+            - name: call the action
+              uses: Mohammed-Rifai/js-action
+              with:
+                token: ${{ secrets.GITHUB_TOKEN }}
+                title: ${{inputs.title}}
+                body: ${{inputs.body}}
+

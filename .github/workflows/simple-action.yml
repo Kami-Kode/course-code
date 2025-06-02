@@ -9,14 +9,11 @@ jobs:
             - name: checkout 
               uses: actions/checkout@v3
             - name: Send A Slack joke
-              uses: ./.github/actions/slack-joke
+              uses: ./.github/actions/slack-php
               id: slack-joke
               with:
-                slack_username: notificationtester00@gmail.com
-                upload_joke: true
                 slack_webhook: ${{secrets.SLACK_WEBHOOK}} # in env variables
-            - name: display joke
-              run: echo '${{steps.slack-joke.outputs.joke}}'
+                message: Hello Slack
 
 
 #we give it actions/directory-for-action-used-on-github+ branch(the branch where we git from) 
