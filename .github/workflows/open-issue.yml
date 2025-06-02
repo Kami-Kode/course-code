@@ -19,10 +19,12 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
-            - name: call the action
+            - name: call-action
               uses: Mohammed-Rifaii/js-action@main
               with:
                 token: ${{ secrets.GITHUB_TOKEN }}
                 title: ${{inputs.title}}
                 body: ${{inputs.body}}
+            - name: Show issue output
+              run: echo "${{steps.call-action.outputs.issue}}"
 
