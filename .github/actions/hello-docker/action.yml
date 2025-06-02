@@ -1,0 +1,24 @@
+name: hello
+author: Mohammed
+description: "displays hello to a certain name"
+inputs:
+    who_to_greet:
+        description: name to greet
+#        required: true
+        default: "World"
+outputs:
+    time:
+        description: the time of the greeting
+
+
+runs:
+    using: "docker" # to specify on what it runs here its a javascript actions
+    #image: "docker://node:24-alpine3.21," it can be this way
+    image: "Dockerfile"
+    #entrypoint: we can use this if we want to override the dockerfile Entrypoint
+    args:
+      - ${{ inputs.who_to_greet }} #setting the argument thats going to be passed as who to gree tnot the default world, this will also be set as env variable in the docker thats why Hello $INPPUT_WHO_TO_GREET will display
+    env:
+      HELLO: WORLD
+    post-entrypoint: ./cleanup.sh
+    post-if: runner.os == 'linux'
