@@ -1,6 +1,7 @@
 const core = require('@actions/core');
 const github = require('@actions/github');
 try{
+    throw new Error("error test");
     core.debug("debug message");
     core.warning("warning message");
     core.error("error message");
