@@ -14,7 +14,7 @@ jobs:
               id: greet
               uses: ./.github/actions/hello
               with:
-                who-to-greet: mohammed
+                who_to_greet: mohammed
             - name: Log Greeting time
               run: echo "$HELLO_TIME"
 
