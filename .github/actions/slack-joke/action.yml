@@ -42,6 +42,6 @@ runs:
         SLACK_USERNAME: slack_username
         SLACK_TITLE: Random joke
         #the or && means if the first condition is true (username is sent) it will use the format ( replace each arugment with its equivalent)) else it just displays random joke
-        SLACK_MESSAGE: echo "inputs.slack_username && format('{0},{1},{2}','@', ${{inputs.slack_username}}, steps.joke.outputs.random_joke) || steps.joke.outputs.random_joke"
+        SLACK_MESSAGE: "${{inputs.slack_username && format('{0},{1},{2}','@', ${{inputs.slack_username}}, steps.joke.outputs.random_joke) || steps.joke.outputs.random_joke}}"
         SLACK_COLOR: "#ff22bbf"
       
