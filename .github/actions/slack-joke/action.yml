@@ -1,0 +1,47 @@
+name: Random Joke
+author: Mohammed
+description: "Generates a random joke and send it to slack"
+inputs:
+  slack_username:
+    description: "Slack username"
+  upload_joke:
+    description: "upload joke as an artifact?"
+  slack_webhook: 
+    description: "Slack webhook:"
+outputs:
+  joke:
+    description: "Joke Created"
+    value: ${{steps.joke.outputs.random_joke}} # to set the output here 
+runs:
+  using: composite
+  steps:
+    - name: generate joke
+      shell: bash
+      id: joke
+      run: |
+        {
+          echo "random_joke<<EOF" 
+          curl -s "https://icanhazdadjoke.com/" 
+          echo "" 
+          echo "EOF" 
+        }>> "$GITHUB_OUTPUT"
+    - name: Generate joke file
+      shell: bash
+      run: echo '${{ steps.joke.outputs.random_joke }}' >joke.txt
+      if: inputs.upload_joke
+    - name: Uploading Joke
+      uses: actions/upload-artifact@v3
+      with:
+        name: joke
+        path: joke.txt
+      if: inputs.upload_joke
+    - name: Send a slack message 
+      uses: docker://technosophos/slack-notify # THE IMAGE HERE
+      env: 
+        SLACK_WEBHOOK: ${{ inputs.slack_webhook }}
+        SLACK_USERNAME: slack_username
+        SLACK_TITLE: Random joke
+        #the or && means if the first condition is true (username is sent) it will use the format ( replace each arugment with its equivalent)) else it just displays random joke
+        SLACK_MESSAGE: " inputs.slack_username && format('{0},{1},{2}','@', ${{inputs.slack_username}}, steps.joke.outputs.random_joke) || steps.joke.outputs.random_joke"
+        SLACK_COLOR: "#ff22bbf"
+      

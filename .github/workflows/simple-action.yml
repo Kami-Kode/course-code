@@ -8,15 +8,16 @@ jobs:
         steps:
             - name: checkout 
               uses: actions/checkout@v3
-            - name: list
-              run: ls -ltr
-            - name: Simple Js Action
-              id: greet
-              uses: ./.github/actions/hello-docker
+            - name: Send A Slack joke
+              uses: ./.github/actions/slack-joke
+              id: slack-joke
               with:
-                who_to_greet: mohammed
-            - name: Log Greeting time
-              run: echo "$HELLO_TIME"
+                slack_username: mhammad
+                upload_joke: true
+                slack_webhook: ${{secrets.SLACK_WEBHOOK}} # in env variables
+            - name: display joke
+              run: echo '${{steps.slack-joke.outputs.joke}}'
+
 
 #we give it actions/directory-for-action-used-on-github+ branch(the branch where we git from) 
 #we can also use docker or docker image
