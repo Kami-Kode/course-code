@@ -5,4 +5,4 @@ echo "INPUT_WHO_TO_GREET : $INPUT_WHO_TO_GREET" #WHO_TO_GREET will be an env var
 echo "HELLO $HELLO" #will print hello world as i set env variable in action.yml
 time = $(date)
 echo "time=$time" >> $GITHUB_OUTPUT # set time it as output
-echo "$HELLO_TIME=$time" >> $GITHUB_ENV  # setting an environemnt variable
+echo "HELLO_TIME=$time" >> $GITHUB_ENV  # setting an environemnt variable
