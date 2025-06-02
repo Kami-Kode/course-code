@@ -20,5 +20,5 @@ runs:
       - ${{ inputs.who_to_greet }} #setting the argument thats going to be passed as who to gree tnot the default world, this will also be set as env variable in the docker thats why Hello $INPPUT_WHO_TO_GREET will display
     env:
       HELLO: WORLD
-    post-entrypoint: ./cleanup.sh
+    post-entrypoint: "/cleanup.sh"
     post-if: runner.os == 'linux'
