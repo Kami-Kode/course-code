@@ -17,7 +17,7 @@ runs:
     pre: "setup.js" # indicates the file that should be run before the index.js , this one is a setup 
                   # note that pre key does not work for private actions it needs to be public but will use it for reference anw
     #runs this pre only on this condition
-    pre-if: runner.os= 'linux' 
+    pre-if: runner.os == 'linux' 
     post: "cleanup.js" # indicate the file that should be run after the index.js is run
     #runs this pre only on this condition 
-    post-if: runner.os= 'linux' 
+    post-if: runner.os== 'linux' 
