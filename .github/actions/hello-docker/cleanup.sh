@@ -1,1 +1,2 @@
-echo "Cleaning"
+#!/bin/sh
+echo "Cleanings"
